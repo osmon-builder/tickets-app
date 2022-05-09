@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { take } from 'rxjs';
+
 import { Ticket } from 'src/app/interface/ticket-detail';
+import { Tickets } from 'src/app/interface/tickets';
 
 import { TicketService } from 'src/app/services/ticket.service';
+
 
 @Component({
   selector: 'app-view-more',
@@ -12,8 +14,9 @@ import { TicketService } from 'src/app/services/ticket.service';
 })
 export class ViewMoreComponent implements OnInit {
 
-  public ticket: Ticket [] = []
-        
+
+ ticketid!: Ticket 
+ ticket!: Tickets    
 
   constructor(
     private ticketServ : TicketService,
@@ -22,19 +25,23 @@ export class ViewMoreComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getTicket();  
+    console.log(this.getTicket)  
+  }
 
-   this.getTicket()
-    }
 
-   getTicket(){
-     const id = parseInt(this.route.snapshot.paramMap.get('id')!);
-     this.ticketServ.getTicket(id)
-      .subscribe(res => {
-        let data = res
-        this.ticket = data.ticket_data
-        console.log(this.ticket)
+  getTicket(){
+    const id = parseInt(this.route.snapshot.paramMap.get('id')!);
+      this.ticketServ.getTicket(id)
+      .subscribe((res: any ) => {
+        let ticket = res.ticket_data
+        this.ticketid = ticket
+       console.log(ticket)
       })
    }
+
+
+
      
    goBack() {
     this.router.navigate(['']);

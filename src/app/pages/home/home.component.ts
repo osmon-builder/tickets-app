@@ -3,11 +3,10 @@ import { TicketService } from 'src/app/services/ticket.service';
 
 
 import { Tickets } from 'src/app/interface/tickets';
-// import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
 
-import { Router } from '@angular/router';
 
 import Swal from 'sweetalert2'
+
 
 
 @Component({
@@ -23,7 +22,6 @@ export class HomeComponent implements OnInit {
  
   constructor(
     private ticketServ : TicketService,
-    public router : Router,
 
 
   ) {  
@@ -32,6 +30,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit( ): void {
     this.setTickets()
+    console.log(this.ticket)
     }
 
 
@@ -40,7 +39,7 @@ export class HomeComponent implements OnInit {
       this.ticketServ.getAllTickets()
       .subscribe(res => {
         this.ticket = res.tickets 
-        console.log(this.ticket)    
+         
       })
     }
 
@@ -65,13 +64,14 @@ export class HomeComponent implements OnInit {
               })          
         Swal.fire(
           'Deleted!',
-          'Your file has been deleted.',
+          'Your ticket has been deleted.',
           'success'
         )
       }
     })   
   }
   
+
   
 
 }
