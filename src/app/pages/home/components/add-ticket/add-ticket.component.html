@@ -1,41 +1,50 @@
-
 <div class="container">
   <button class="btn btn-primary" type="button" (click)="goBack()">Ticket list</button>
   <h1> {{title}} </h1>
 
-  <form [formGroup]="ticketForm.baseForm" (ngSubmit)="addTicket()">
-    <label for="first-name">ni </label>
-    <input id="first-name" type="text" formControlName="ni" required>
+  <form class="col-auto text-center" [formGroup]="ticketForm.baseForm" (ngSubmit)="addTicket()">
+    <div>
+      <label for="first-name">ni </label>
+      <input id="first-name" type="text" formControlName="ni" required>
+    </div>
 
-    <label for="last-name">Doc </label>
-    <input id="last-name" type="text" formControlName="type_doc">
-
-    <label for="street">name </label>
-    <input id="street" type="text" formControlName="name">
-
-    <label for="city">Last name </label>
-    <input id="city" type="text" formControlName="last_name">
-
-    <label for="state">Cellphone </label>
-    <input id="state" type="text" formControlName="cellphone">
-
-    <label for="phone">phone </label>
-    <input id="phone" type="text" formControlName="phone">
-
-    <label for="email">email </label>
-    <input id="email" type="email" formControlName="email">
-
-    <label for="title">title </label>
-    <input id="title" type="text" formControlName="title">
-
-    <label for="type_ticket">ticket type </label>
-    <input id="type_ticket" type="text" formControlName="type_ticket">
-    <br>
+    <div>
+      <label for="last-name">Doc </label>
+      <input id="last-name" type="text" formControlName="type_doc">
+    </div>
+    <div>
+      <label for="street">name </label>
+      <input id="street" type="text" formControlName="name">
+    </div>
+    <div>
+      <label for="city">Last name </label>
+      <input id="city" type="text" formControlName="last_name">
+    </div>
+    <div>
+      <label for="state">Cellphone </label>
+      <input id="state" type="text" formControlName="cellphone">
+    </div>
+    <div>
+      <label for="phone">phone </label>
+      <input id="phone" type="text" formControlName="phone">
+    </div>
+    <div>
+      <label for="email">email </label>
+      <input id="email" type="email" formControlName="email">
+    </div>
+    <div>
+      <label for="title">title </label>
+      <input id="title" type="text" formControlName="title">
+    </div>
+    <div>
+      <label for="type_ticket">ticket type </label>
+      <input id="type_ticket" type="text" formControlName="type_ticket">
+    </div><br>
     <textarea name="message" placeholder="Description" formControlName="description"></textarea>
 
     <p>Complete the form to enable button.</p>
-    <button class="btn btn-submit" type="submit" [disabled]="!ticketForm.baseForm.valid">Submit</button>
+    <button class="btn btn-submit m-2" type="submit" [disabled]="!ticketForm.baseForm.valid">Submit</button>
 
   </form>
-  
+
 </div>
