@@ -1,6 +1,6 @@
 <div class="container">
   <button class="btn btn-primary" type="button" (click)="goBack()">Ticket list</button>
-  <h1> {{title}} </h1>
+  <h1 class="title"> {{title}} </h1>
 
   <form class="col-auto text-center" [formGroup]="ticketForm.baseForm" (ngSubmit)="addTicket()">
     <div>
@@ -43,7 +43,7 @@
     <textarea name="message" placeholder="Description" formControlName="description"></textarea>
 
     <p>Complete the form to enable button.</p>
-    <button class="btn btn-submit m-2" type="submit" [disabled]="!ticketForm.baseForm.valid">Submit</button>
+    <button class="btn btn-primary m-2" type="submit" [disabled]="!ticketForm.baseForm.valid">Submit</button>
 
   </form>
 
