@@ -1,8 +1,11 @@
 <div class="container">
-  <button class="btn btn-primary" type="button" (click)="goBack()">Ticket list</button>
-  <h1 class="title"> {{title}} </h1>
+  <ul>
+    <button class="btn btn-primary" type="button" (click)="goBack()">Ticket list</button>
+    <h1 style="text-align: center;" class="title"> {{title}} </h1>
+  </ul>
+  
 
-  <form class="col-auto text-center" [formGroup]="ticketForm.baseForm" (ngSubmit)="addTicket()">
+  <form style="text-align: center;" class="col-auto" [formGroup]="ticketForm.baseForm" (ngSubmit)="addTicket()">
     <div>
       <label for="first-name">ni </label>
       <input id="first-name" type="text" formControlName="ni" required>
